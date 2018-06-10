@@ -50,24 +50,27 @@ for j in range(0,cols,1):
 ##print(m0)
 ##print(m1)
 
-sd0=[]
+v0=[]
 for j in range(0,cols,1):
-    sd0.append(0)
-sd1=[]
+    v0.append(0)
+v1=[]
 for j in range(0,cols,1):
-    sd1.append(0)
+    v1.append(0)
     
 for i in range(0,rows,1):
     if(trainlabels.get(i)!=None and trainlabels[i]==0):
         for j in range(0,cols,1):
-            sd0[j]=sd0[j]+((data[i][j]-m0[j])**2)
+            v0[j]=v0[j]+((data[i][j]-m0[j])**2)
     if(trainlabels.get(i)!=None and trainlabels[i]==1):
         for j in range(0,cols,1):
-            sd1[j]=sd1[j]+((data[i][j]-m1[j])**2)
+            v1[j]=v1[j]+((data[i][j]-m1[j])**2)
 for j in range(0,cols,1):
-    sd0[j]=(sd0[j]/n[0])**(1/2)
-    sd1[j]=(sd1[j]/n[1])**(1/2)    
-    
+    v0[j]=v0[j]/n[0]
+    v1[j]=v1[j]/n[1]  
+
+##print(v0)
+##print(v1)
+
 for i in range(0,rows,1):
     if(trainlabels.get(i)==None):
         d0=0
