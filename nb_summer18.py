@@ -47,15 +47,15 @@ for i in range(0,rows,1):
 for j in range(0,cols,1):
     m0[j]=m0[j]/n[0]
     m1[j]=m1[j]/n[1]
-print(m0)
-print(m1)
+##print(m0)
+##print(m1)
 
 sd0=[]
 for j in range(0,cols,1):
-    m0.append(0)
+    sd0.append(0)
 sd1=[]
 for j in range(0,cols,1):
-    m1.append(0)
+    sd1.append(0)
     
 for i in range(0,rows,1):
     if(trainlabels.get(i)!=None and trainlabels[i]==0):
@@ -73,8 +73,8 @@ for i in range(0,rows,1):
         d0=0
         d1=0
         for j in range(0,cols,1):
-            d0=d0+(m0[j]-data[i][j])**2
-            d1=d1+(m1[j]-data[i][j])**2
+            d0=d0+(((m0[j]-data[i][j])/sd0[j])**2)
+            d1=d1+(((m1[j]-data[i][j])/sd1[j])**2)
         if(d0<d1):
             print("0",i)
         else:
