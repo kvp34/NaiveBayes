@@ -76,8 +76,8 @@ for i in range(0,rows,1):
         d0=0
         d1=0
         for j in range(0,cols,1):
-            d0=d0+(((m0[j]-data[i][j])/sd0[j])**2)
-            d1=d1+(((m1[j]-data[i][j])/sd1[j])**2)
+            d0=d0+(((m0[j]-data[i][j])**2)/v0[j])
+            d1=d1+(((m1[j]-data[i][j])**2)/v1[j])
         if(d0<d1):
             print("0",i)
         else:
